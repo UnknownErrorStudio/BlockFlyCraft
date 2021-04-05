@@ -1,5 +1,6 @@
 package cn.unknownerror.blockflycraft
 
+import cn.unknownerror.blockflycraft.api.block.ArmorStandBlock
 import io.izzel.taboolib.TabooLib
 import io.izzel.taboolib.loader.Plugin
 
