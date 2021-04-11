@@ -19,9 +19,8 @@ class ArmorStandBlock (val material: Material, val x : Double, val y : Double, v
         if(!::armorStand.isInitialized){
             armorStand = location.world?.spawnEntity(location.clone().add(x,y,z),EntityType.ARMOR_STAND) as ArmorStand
             armorStand.setHelmet(ItemStack(material))
-            armorStand.isInvulnerable = true;
-            armorStand.isVisible = false;
-            armorStand.setGravity(false)
+            armorStand.isInvulnerable = true
+            armorStand.isVisible = false
         }
         return armorStand
     }
