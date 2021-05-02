@@ -18,11 +18,11 @@ import kotlin.math.sin
 class TestListener : Listener{
     @EventHandler
     fun onPlayerChat(e: PlayerChatEvent){
-        val block1 = ArmorStandBlock(Material.DIAMOND_BLOCK,2.0,2.0,1.0,e.player.location)
+        val block1 = ArmorStandBlock(Material.DIAMOND_BLOCK,1.0,0.0,0.0,e.player.location)
         val block2 = ArmorStandBlock(Material.DIAMOND_BLOCK,0.0,0.0,0.0,e.player.location)
-        val block3 = ArmorStandBlock(Material.DIAMOND_BLOCK,-1.0,-1.0,-1.0,e.player.location)
+        val block3 = ArmorStandBlock(Material.DIAMOND_BLOCK,-1.0,0.0,0.0,e.player.location)
         block1.getArmorStand()
-        block2.getArmorStand().addPassenger(e.player)
+        block2.getArmorStand()
         block3.getArmorStand()
         Bukkit.getScheduler().runTaskTimer(BlockFlyCraft.plugin,
             Runnable {
@@ -30,12 +30,8 @@ class TestListener : Listener{
                 val vector = loc.direction
                 val degree = loc.yaw.toDouble()
                 val radian = Math.toRadians(degree)
-                block1.getArmorStand().headPose = EulerAngle(0.0, radian+90, 0.0)
-                block2.getArmorStand().headPose = EulerAngle(0.0, radian+90, 0.0)
-                block3.getArmorStand().headPose = EulerAngle(0.0, radian+90, 0.0)
-                block1.getArmorStand().teleport(loc.add(2.0* cos(radian) - 1.0* sin(radian) ,0.0,2.0* sin(radian) + 1.0* cos(radian)))
-                block2.getArmorStand().teleport(loc.add(vector.normalize().multiply(0.2)))
-                block3.getArmorStand().teleport(loc.add(-1.0* cos(radian) - -1.0* sin(radian) ,0.0,-1.0* sin(radian) + -1.0* cos(radian)))
+                block1.getArmorStand().teleport(loc.add(1.0* cos(radian) - 0.0* sin(radian) ,0.0,1.0* sin(radian) + 0.0* cos(radian)))
+                block3.getArmorStand().teleport(loc.add(-1.0* cos(radian) - 0.0* sin(radian) ,0.0,-1.0* sin(radian) + -0.0* cos(radian)))
                 e.player.sendMessage(degree.toString())
                 e.player.sendMessage(radian.toString())
         },0,1)
